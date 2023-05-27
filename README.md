@@ -72,4 +72,4 @@ Para iniciar la aplicación correctamente tiene que ejecutar el .java con el nom
 <br>
 [![Adrián LV](https://img.shields.io/badge/Adri%C3%A1n_LV-101010?style=for-the-badge&logo=youtube&logoColor=white&labelColor=FF0000)](https://www.youtube.com/channel/UCNwILxAy4jgwDcFD08FDD8w)
 <br>
-[![Trilogy](https://img.shields.io/badge/Web-Trilogy.com-14a1f0?style=for-the-badge&logo=dev.to&logoColor=white&labelColor=101010)](https://trilogyrgda.000webhostapp.com/)
+[![Trilogy](https://img.shields.io/badge/Web-Trilogy.com-14a1f0?style=for-the-badge&logo=dev.to&logoColor=white&labelColor=101010)](https://trilogyrgda.github.io./)
