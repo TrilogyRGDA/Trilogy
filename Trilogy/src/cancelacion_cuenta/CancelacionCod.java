@@ -174,7 +174,7 @@ public class CancelacionCod extends JFrame {
 		//--------------------------------------------------------------------------------------------------------	
 		lbl_Texto_AgradecimientoUsuario = new JLabel
 				("<html>Eres parte esencial de Trilogy; por eso, nos mantenemos pendientes<br>" 
-						+ "  de lo que necesitasy por eso nos actualizamos continuamente <br>" 
+						+ "  de lo que necesitas y por eso nos actualizamos continuamente <br>" 
 						+ "<br>Contamos contigo como prioridad número 1<br><br>" 
 						+ "«¡Gracias por confiar en nosotros!»" 
 						, SwingConstants.CENTER);
@@ -322,7 +322,7 @@ public class CancelacionCod extends JFrame {
 				btnConfirm.setVisible(false);
 				btnCancelarMembresía.setVisible(true);
 				lbl_Texto_AgradecimientoUsuario.setText("<html>Eres parte esencial de Trilogy; por eso, nos mantenemos pendientes<br>" 
-						+ "  de lo que necesitasy por eso nos actualizamos continuamente <br>" 
+						+ "  de lo que necesitas y por eso nos actualizamos continuamente <br>" 
 						+ "<br>Contamos contigo como prioridad número 1<br><br>" 
 						+ "«¡Gracias por confiar en nosotros!»");
 				int membresia_id=-1;

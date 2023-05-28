@@ -15,20 +15,30 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
+//import java.net.URI;
 import java.awt.Cursor;
 import javax.swing.JButton;
 /**
- * Esta clase es un pantalla de publicidad. En esta pantalla te mostrara un mensaje ofeciondo que veas lo que quieras, 
- * en caso de que no quieras ver nada te diremos un mensaje motivador para que veas una película dejandode el trailer de la película para que te quedes con las ganas de verla y entres a verla.
- * @param contentPane Es el panel principal donde contiene todos los atributos necesarios.
- * @param panel_contenedor Contiene todos los atributos, para la facilitación de cambio de panel.
- * @param btnEngranaje_Admin El botón btnEngranaje_Admin te envía a una página donde puedes hacer un series de configuraciones sobre la cuenta del usuario que allas iniciado sesión.
- * @param lbl_Trailer_Peli Contiene la imagen de la peli que te publicitan en el parametro "lbl_TXT_Recomen_Peli" y cuando le pulsas te muestra el trailer de la pelicula.
- * @param lbl_TXT_Recomen_Peli Contiene texto recomendandote una peli.
- * @param lbl_TXT_Publicitario Contiene texto publicitario.
- * @param lbl_Logo Contiene la imagen del logo.
- * @param lbl_IMG_Fondo Contiene la imagen del fondo.
- * @author TRILOGY. Miembros: Adrian Leal Vacas, Gonzalo Amo Cano y Raul Senso Montojo.
+ * Esta página es un pantalla de publicidad. En ella se mostrará un mensaje ofeciendo que veas lo que quieras, 
+ * en caso de que no quieras ver nada, te mostramos un mensaje motivador para que veas parte de nuestro contenido, en este caso el trailer de la película para que te quedes con las ganas de verla y desees verla.
+ * Esta página tiene dos versiones, ya que el panel de la izquierda se puede reducir de tamaño para una mejor visualización del contenido.
+ * @param contentPane
+ * Es el panel principal donde contiene todos los atributos necesarios.
+ * @param panel_contenedor
+ * Contiene todos los atributos, para la facilitar los cambios de panel.
+ * @param lbl_IMG_Fondo
+ * Tiene la imagen del fondo característico de color verde.(Estético).
+ * @param btnEngranaje_Admin
+ * El botón btnEngranaje_Admin te envía a una página donde puedes realizar una serie de configuraciones sobre la cuenta del usuario que ha iniciado sesión.
+ * @param lbl_Logo
+ * Label con la imagen de nuestro logo (Estético).
+ * @param lbl_TXT_Publicitario
+ * Contiene texto en el que indica lo que puedes hacer en Trilogy(Estético).
+ * @param lbl_TXT_Recomen_Peli
+ * Contiene texto donde te sugiere que ver, en el lado derecho del texto está "lbl_Trailer_Peli" con el trailer..
+ * @param lbl_Trailer_Peli
+ * Contiene la imagen de la película que te publicitan en  "lbl_TXT_Recomen_Peli" y cuando pulsas te muestra el trailer de la película.
+ * @author TRILOGY. Miembros: Adrián Leal Vacas, Gonzalo Amo Cano y Raúl Senso Montojo.
  */
 public class Pagina_Publicidad extends JFrame {
 	// UID VERSIÓN
@@ -62,7 +72,7 @@ public class Pagina_Publicidad extends JFrame {
 	// MÉTODO MAIN
 	// ------------------------------------------------------------------------------------------------------
 	/**
-	 * En el MÉTODO main ejecutamos la ventana principal Pagina_Publicidad donde te mostrara publicidad.
+	 * En el método main ejecutamos la ventana principal Pagina_Publicidad donde te mostrará publicidad.
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -80,8 +90,11 @@ public class Pagina_Publicidad extends JFrame {
 	// CONSTRUCTOR
 	// ------------------------------------------------------------------------------------------------------
 	/**
-	 * El constructor se llama a los atributos y MÉTODOS necesarios para el funcionamiento de la clase Pagina_Publicidad.
+	 * El constructor se llama a los atributos y métodos necesarios para el funcionamiento de la clase Pagina_Publicidad.
 	 */
+	// ----------------------------------------------------------------------------------------
+	// PANEL ADMINISTRADOR
+	// ----------------------------------------------------------------------------------------
 	public Pagina_Publicidad() {
 		setType(Type.UTILITY);
 		setResizable(false);
@@ -108,7 +121,7 @@ public class Pagina_Publicidad extends JFrame {
 		ImageIcon imgFondoIMG = new ImageIcon(fondoIMG.getImage().getScaledInstance(lbl_IMG_Fondo.getWidth(), lbl_IMG_Fondo.getHeight(), Image.SCALE_SMOOTH)); // CREAMOS OTRO OBJETO PARA QUE SE AJUSTE AUTOMÁTICAMENTE LA IMAGEN
 		lbl_IMG_Fondo.setIcon(imgFondoIMG);
 		// ----------------------------------------------------------------------------------------
-		// btnEngranaje_Admin te vas a administrar tu cuenta
+		// btnEngranaje_Admin TE REDIRIGE A ADMINISTRAR TU CUENTA
 		// ----------------------------------------------------------------------------------------
 		btnEngranaje_Admin = new JButton("");
 		btnEngranaje_Admin.setBounds(929, 0, 32, 32);
@@ -116,6 +129,7 @@ public class Pagina_Publicidad extends JFrame {
 		btnEngranaje_Admin.setBackground(new Color(241,245,245)); // COLOR DE FONDO
 		btnEngranaje_Admin.addMouseListener(new MouseAdapter() {
 			@Override
+			//CUANDO PULSAS
 			public void mouseClicked(MouseEvent e) {
 				try {
 					CancelacionCod pag_admin_user = new CancelacionCod();
@@ -123,7 +137,6 @@ public class Pagina_Publicidad extends JFrame {
 				} catch (Exception e1) {
 					e1.printStackTrace();
 				}
-
 			}
 		});
 		// AJUSTAR IMAGEN AL CONTENIDO
@@ -135,7 +148,6 @@ public class Pagina_Publicidad extends JFrame {
 		// ----------------------------------------------------------------------------------------
 		lbl_Logo = new JLabel("");
 		lbl_Logo.setBounds(255, 75, 450, 100);
-		//lblLogo.setForeground(new Color(255, 255, 255));
 		// AJUSTAR IMAGEN AL CONTENIDO
 		ImageIcon logo = new ImageIcon(getClass().getResource("/Trilogy_imagenes/LogoTrilogy.jpg")); // CREACIÓN NUEVO OBJETO CON LA RUTA DE LA IMAGEN
 		ImageIcon imgLogo = new ImageIcon(logo.getImage().getScaledInstance(lbl_Logo.getWidth(), lbl_Logo.getHeight(), Image.SCALE_SMOOTH)); // CREAMOS OTRO OBJETO PARA QUE SE AJUSTE AUTOMÁTICAMENTE LA IMAGEN
@@ -143,17 +155,17 @@ public class Pagina_Publicidad extends JFrame {
 		// ----------------------------------------------------------------------------------------
 		// LABEL DE TEXTO PUBLICITARIO DONDE TE MUESTRA UN MENSAJE
 		// ----------------------------------------------------------------------------------------
-		lbl_TXT_Publicitario = new JLabel("Seleciona el contenido que te apetece ver.");
+		lbl_TXT_Publicitario = new JLabel("Selecciona sólo el contenido que te apetece ver.");
 		lbl_TXT_Publicitario.setHorizontalAlignment(SwingConstants.CENTER);
 		lbl_TXT_Publicitario.setBounds(180, 240, 600, 100);
 		lbl_TXT_Publicitario.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		lbl_TXT_Publicitario.setOpaque(true); // PARA PODER PONER COLOR DE FONDO
 		lbl_TXT_Publicitario.setBackground(new Color(241,245,245)); // COLOR DE FONDO
 		// ----------------------------------------------------------------------------------------
-		// LABEL RECOMENDADO UNA PELÍCULA
+		// LABEL RECOMENDADO UNA PELICULA
 		// ----------------------------------------------------------------------------------------
 		lbl_TXT_Recomen_Peli = new JLabel("<html>"
-				+ "<p style=\"text-align: center;\">Hoy es un gran día para ver un apelícula de acción de</p><br>"
+				+ "<p style=\"text-align: center;\">Hoy es un gran día para ver una película de acción:</p><br>"
 				+ "<p style=\"text-align: center;\">Dwayne Johnson, 'La Roca'</p>"
 				+ "</html>");
 		lbl_TXT_Recomen_Peli.setHorizontalAlignment(SwingConstants.CENTER);
@@ -167,16 +179,24 @@ public class Pagina_Publicidad extends JFrame {
 		lbl_Trailer_Peli = new JLabel("");
 		lbl_Trailer_Peli.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lbl_Trailer_Peli.addMouseListener(new MouseAdapter() {
-			// EVENTO DE CLICKAR
+			// EVENTO AL PULSAR
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				// CUANDO HACE CLICK TE MUESTRA LA PELÍCULA QUE RECOMIENDA EL TEXTO PUBLICITARIO
+				// CUANDO PULSA TE MUESTRA LA PELÍCULA QUE RECOMIENDA EL TEXTO PUBLICITARIO
 				File path = new File ("./src/Trilogy_imagenes/Intro_pelicula.mp4"); // RUTA DEL TRAILER
 				try {
-					Desktop.getDesktop().open(path); // ABRE LA PELÍCULA EN EL EDITOR POR DEFECTO DE TU ORDENADRO
+					Desktop.getDesktop().open(path); // ABRE LA PELÍCULA EN EL REPRODUCTOR POR DEFECTO DE TU ORDENADOR
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
+				// CON UN ENLACE A INTERNET
+				/*try {
+					  Desktop desktop = java.awt.Desktop.getDesktop();
+					  URI uri = new URI("https://youtu.be/LlIU1o2iyjw");
+					  desktop.browse(uri);
+					} catch (Exception ex) {
+					  ex.printStackTrace();
+					}*/
 			}
 		});
 		lbl_Trailer_Peli.setHorizontalAlignment(SwingConstants.CENTER);
@@ -186,7 +206,7 @@ public class Pagina_Publicidad extends JFrame {
 		ImageIcon imgPeli = new ImageIcon(peli.getImage().getScaledInstance(lbl_Trailer_Peli.getWidth(), lbl_Trailer_Peli.getHeight(), Image.SCALE_SMOOTH)); // CREAMOS OTRO OBJETO PARA QUE SE AJUSTE AUTOMÁTICAMENTE LA IMAGEN
 		lbl_Trailer_Peli.setIcon(imgPeli);
 		// ----------------------------------------------------------------------------------------
-		// JERARQUÍA DEL panel_contenedor
+		// JERARQUIA DEL panel_contenedor
 		// ----------------------------------------------------------------------------------------
 		panel_contenedor.add(btnEngranaje_Admin);
 		panel_contenedor.add(lbl_Trailer_Peli);
